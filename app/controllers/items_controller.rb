@@ -13,12 +13,12 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		@item = Item(item_params)
+		@item = Item.new(item_params)
 
 		if @item.save
-      redirect_to @item, status: :unprocessable_entity
+      redirect_to @item
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
 	end
 
