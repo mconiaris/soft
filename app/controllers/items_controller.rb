@@ -33,11 +33,12 @@ class ItemsController < ApplicationController
 			redirect_to @item
 		else
 			render :edit, status: :unprocessable_entity
+		end
 	end
 
 	private
 		def item_params
 			params.require(:item).permit(:name)
-			
 		end
+
 end
