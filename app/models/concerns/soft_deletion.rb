@@ -8,6 +8,10 @@ module SoftDeletion
   end
 
   def soft_delete
-  	self.deleted_at = DateTime.now
+  	update_column :deleted_at, DateTime.now
+  end
+
+  def restore
+  	update_column :deleted_at, nil
   end
 end
