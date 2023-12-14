@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
 	def destroy
 		@item = Item.find(params[:id])
-		@item.destroy
+		@item.soft_delete
 
 		redirect_to root_path, status: :see_other
 	end
