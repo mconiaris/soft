@@ -1,2 +1,0 @@
-class RemovedItemsController < ApplicationController
-end
