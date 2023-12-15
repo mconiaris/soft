@@ -1,0 +1,2 @@
+module RemovedItemsHelper
+end
