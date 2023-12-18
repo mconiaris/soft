@@ -4,7 +4,7 @@ module SoftDeletion
 	extend ActiveSupport::Concern
 
 	included do
-    scope :disabled, -> { where(disabled: true) }
+    default_scope { where(deleted_at: nil) }
   end
 
   def soft_delete
@@ -12,6 +12,6 @@ module SoftDeletion
   end
 
   def restore
-  	update_column :deleted_at, nil
+  	update_column :deleted_at, self.deleted_at = nil
   end
 end
