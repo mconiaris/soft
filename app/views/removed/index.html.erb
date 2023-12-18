@@ -4,8 +4,7 @@
   <% @items.each do |item| %>
     <li>
       <%= link_to item.name, item %>&emsp;
-      <%= link_to "Edit Item", edit_item_path(item) %>&emsp;
-      <%= link_to "Restore Item", item_path(item), data: {
+      <%= link_to "Restore Item", removed_path(item), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>)

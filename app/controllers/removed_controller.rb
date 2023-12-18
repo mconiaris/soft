@@ -4,7 +4,7 @@ def index
 	end
 
 	def destroy
-		@item = Item.find(params[:id])
+		@item = Item.unscoped.find(params[:id])
 		@item.restore
 
 		redirect_to root_path, status: :see_other
