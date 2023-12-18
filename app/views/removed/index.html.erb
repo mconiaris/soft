@@ -1,0 +1,16 @@
+<h1>This is the removed items page!</h1>
+<p>
+  <ul>
+  <% @items.each do |item| %>
+    <li>
+      <%= link_to item.name, item %>&emsp;
+      <%= link_to "Edit Item", edit_item_path(item) %>&emsp;
+      <%= link_to "Restore Item", item_path(item), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>)
+    </li>
+  <% end %>
+</ul>
+</p>
+<p><%= link_to "New Item", new_item_path %></p>

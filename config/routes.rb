@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items
+  get "/removed", to: "removed#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
