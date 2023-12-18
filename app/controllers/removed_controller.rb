@@ -1,6 +1,6 @@
 class RemovedController < ApplicationController
 def index
-		@items = Item.unscoped
+		@items = Item.unscoped.where.not(deleted_at: nil)
 	end
 
 	def destroy
