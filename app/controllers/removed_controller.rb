@@ -1,0 +1,2 @@
+class RemovedController < ApplicationController
+end
