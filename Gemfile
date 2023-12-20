@@ -49,6 +49,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   # Add rspec
   gem "rspec-rails"
+  gem 'pry', '~> 0.14.2'
 end
 
 group :development do
