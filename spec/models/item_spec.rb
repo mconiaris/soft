@@ -8,6 +8,12 @@ RSpec.describe Item, type: :model do
     @item.save
   end
 
+  context "should validate" do
+    it "with name present" do
+      expect(@item).to be_valid
+    end
+  end
+
   context "in its default state" do
     it "should be an Item" do
       expect(@item).to be_an_instance_of(Item)
