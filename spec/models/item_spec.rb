@@ -33,6 +33,14 @@ RSpec.describe Item, type: :model do
     end
   end
 
+  context "the 'restore' method" do
+    it "should change the 'deleted_at' attribute to nil" do
+      @item.restore
+      @item.save
+      expect(@item.deleted_at).to eq(nil)
+    end
+  end
+
 end
 
 
