@@ -1,7 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Items", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+RSpec.describe ItemsController, type: :controller do
+  describe "GET index" do
+    it "has a 200 status code" do
+      get :index
+      expect(response.status).to eq(200)
+    end
   end
 end
