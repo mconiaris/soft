@@ -2,12 +2,12 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe Item, type: :model do
-
   before(:context) do
     @item = Item.new(name: "Computer")
+    @item.save
   end
 
-  context "After Item instanciation" do
+  context "before it is removed" do
     it "should be an Item" do
       expect(@item).to be_an_instance_of(Item)
     end
@@ -19,12 +19,19 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  context "After Item is removed" do
-    binding.pry
-    @item.soft_delete
-    it "shoulder have a 'deleted_at' attribute type of Timestamp" do
-      expect(@item.deleted_at.class).to eq(Timestamp)     
+  context "after it is removed" do
+    it "should have a 'deleted_at' attribute type that can be converted into DateTime" do
+      @item.soft_delete
+      @item.save
+      expect(@item.deleted_at.to_datetime.class).to eq(DateTime)
+    end
+    it "should have a 'deleted_at' attribute type of 'ActiveSupport::TimeWithZone'" do
+      @item.soft_delete
+      @item.save
+      expect(@item.deleted_at.class).to eq(ActiveSupport::TimeWithZone)
     end
   end
 
 end
+
+
