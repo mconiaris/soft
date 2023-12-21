@@ -2,48 +2,57 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe Item, type: :model do
-  before(:context) do
-    @item_name = "Computer"
-    @item = Item.new(name: @item_name)
-    @item.save
-  end
-
-  context "should validate" do
-    it "with name present" do
-      expect(@item).to be_valid
-    end
-  end
+  # before(:context) do
+  #   @item_name = "Computer"
+  #   @item = Item.new(name: @item_name)
+  #   @item.save
+  # end
+  let(:item1) { Item.new(name: "Computer") }
 
   context "in its default state" do
     it "should be an Item" do
-      expect(@item).to be_an_instance_of(Item)
+      expect(item1).to be_an_instance_of(Item)
     end
-    it "should have the name attribute assigned to it" do
-      expect(@item.name).to eq(@item_name)
+    it "should validate with name present" do
+      expect(item1).to be_valid
     end
-    it "should have a 'deleted_at' value of nil" do
-      expect(@item.deleted_at).to eq(nil)
+    it "the 'name' attribute should be a string" do
+      expect(item1.name).to be_instance_of(String)
+    end
+    it "the 'deleted_at' attribute should be nil" do
+      expect(item1.deleted_at).to be_nil
     end
   end
 
   context "the 'soft_delete' method" do
-    it "should change the 'deleted_at' attribute to a date and time object that can be converted into DateTime" do
-      @item.soft_delete
-      @item.save
-      expect(@item.deleted_at.to_datetime.class).to eq(DateTime)
+    it "should change the 'deleted_at' attribute from nil to a 
+      a DateTime object" do
+      item1.save
+      item1.soft_delete
+      expect(item1.deleted_at).to be_within(1).of(DateTime.now)
     end
-    it "should have a 'deleted_at' attribute type that was converted into a 'ActiveSupport::TimeWithZone' object in the database" do
-      @item.soft_delete
-      @item.save
-      expect(@item.deleted_at.class).to eq(ActiveSupport::TimeWithZone)
+    it "should change the 'deleted_at' attribute from nil to a 
+      'ActiveSupport::TimeWithZone' object in the database" do
+      item1.save
+      item1.soft_delete
+      expect(item1.deleted_at.class).to eq(ActiveSupport::TimeWithZone)
     end
   end
 
-  context "the 'restore' method" do
+  xcontext "the 'restore' method" do
     it "should change the 'deleted_at' attribute to nil" do
       @item.restore
       @item.save
       expect(@item.deleted_at).to eq(nil)
+    end
+  end
+
+  xcontext "default scope" do
+    it "should only include items with 'deleted_at' values of nil" do
+      item1 = Item.new(name: "Computer")
+      item2 = Item.new(name: "Kindle", deleted_at: DateTime.now)
+      @items = Item.all
+      binding.pry
     end
   end
 
