@@ -48,11 +48,16 @@ RSpec.describe Item, type: :model do
   end
 
   context "default scope" do
-    it "should only include items with 'deleted_at' values of nil" do
+    it "should include items with 'deleted_at' values of nil" do
       item1.save
-      item2 = Item.new(name: "Kindle", deleted_at: DateTime.now)
       @items = Item.all
-      binding.pry
+      expect(@items).to include(item1)
+    end
+    it "should not include items with 'deleted_at' values of DateTime objects" do
+      item2 = Item.new(name: "Kindle", deleted_at: DateTime.now)
+      item2.save
+      @items = Item.all
+      expect(@items).not_to include(item2)
     end
   end
 
