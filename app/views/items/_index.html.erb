@@ -3,7 +3,7 @@
   <ul>
   <% @items.each do |item| %>
     <li>
-      <%= link_to item.name, item %>&emsp;
+      <%= item.name %>&emsp;
       <%= link_to "Edit Item", edit_item_path(item) %>&emsp;
       <%= link_to "Delete Item", item_path(item), data: {
                     turbo_method: :delete,
@@ -11,5 +11,5 @@
                   } %>)
     </li>
   <% end %>
-</ul>
+  </ul>
 </p>

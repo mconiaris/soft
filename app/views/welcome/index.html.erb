@@ -1,4 +1,12 @@
-Welcome
-<p><%= link_to "New Item", new_item_path %></p>
+<div class="banner">Michael Coniaris' Soft Delete Page</div>
+<div class="code"><%= link_to "Click here for this project's source code", "https://github.com/mconiaris/soft", target: "_blank", rel: "nofollow" %></div>
+
+<p><%= link_to "Create a New Item", new_item_path %></p>
 <%= render "items/index" %>
 <%= render "removed/index" %>
+
+<div class="examples">External Websites</div>
+
+<div class="links"><%= link_to "Personal Website", "http://www.michaelconiaris.com", target: "_blank", rel: "nofollow" %></div>
+<div class="links"><%= link_to "GitHub", "https://github.com/mconiaris", target: "_blank", rel: "nofollow" %></div>
+<div class="links"><%= link_to "LinkedIn", "https://www.linkedin.com/in/michaelconiaris/", target: "_blank", rel: "nofollow" %></div>

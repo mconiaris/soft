@@ -3,7 +3,7 @@
   <ul>
   <% @removed_items.each do |item| %>
     <li>
-      <%= link_to item.name, item %>&emsp;
+      <%= item.name %>&emsp;
       <%= link_to "Restore Item", removed_path(item), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
