@@ -1,5 +1,19 @@
 # README
 
+Thank you for considering me for the PacerPro web developer position. This is my response to the coding test. The code endevors to create a soft delete function for items. 
+
+I've kept it bare bones, both in substance and style. In order to keep my controllers clean, I modified the Index destroy action to implement a soft_delete method and created a Removed controller that uses its destroy action to restore it.
+
+I implemented partials so that items added and removed would show up on the homepage.
+
+To make things easier for you, I here is a link to a Website where you can see it in action: https://thawing-spire-40801-f61f4dd0fa1b.herokuapp.com/
+
+Please don't judge me on my site styling. I did it quick and easy. If this were for a client, I would have made it look much nicer.
+
+
+
+The code may be found here: https://github.com/mconiaris/soft
+
 Source Material
 Ruby on Rails Guides: https://guides.rubyonrails.org/index.html
 
