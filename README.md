@@ -1,6 +1,8 @@
 # README
 
-Thank you for considering me for the PacerPro web developer position. This is my response to the coding test. The code endevors to create a soft delete function for items, as per your specifications. 
+Thank you for considering me for the PacerPro web developer position. This is my response to the coding test. The code endevors to create a soft delete function for items, as per your specifications.
+
+I made the decision to put the custom methods in a Module.
 
 I've kept it bare bones, both in substance and style. In order to keep my controllers clean, I modified the Index destroy action to implement a soft_delete method and created a Removed controller that uses its destroy action to restore it.
 
@@ -10,9 +12,7 @@ To make things easier for you, I here is a link to **[a Website](https://thawing
 
 Please don't judge me on my site styling. I did it quick and easy. If this were for a client, I would have made it look much nicer.
 
-
-
-Here's the **[code](https://github.com/mconiaris/soft)** on GitHub.
+Here's the **[code](https://github.com/mconiaris/soft)** on GitHub. The RSpec tests are in the RSpec folder.
 
 ### Source Material
 Ruby on Rails Guides: https://guides.rubyonrails.org/index.html
@@ -36,26 +36,3 @@ Rspec Matchers - be_within: https://rspec.info/features/3-12/rspec-expectations/
 Medium: What does let do?: https://medium.com/@tomkadwill/all-about-rspec-let-a3b642e08d39
 
 Soft delete from scratch in Ruby on Rails (YouTube): https://www.youtube.com/watch?v=8KOwko02fvM
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
