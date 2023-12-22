@@ -39,17 +39,17 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  xcontext "the 'restore' method" do
+  context "the 'restore' method" do
     it "should change the 'deleted_at' attribute to nil" do
-      @item.restore
-      @item.save
-      expect(@item.deleted_at).to eq(nil)
+      item1.save
+      item1.restore
+      expect(item1.deleted_at).to eq(nil)
     end
   end
 
-  xcontext "default scope" do
+  context "default scope" do
     it "should only include items with 'deleted_at' values of nil" do
-      item1 = Item.new(name: "Computer")
+      item1.save
       item2 = Item.new(name: "Kindle", deleted_at: DateTime.now)
       @items = Item.all
       binding.pry
