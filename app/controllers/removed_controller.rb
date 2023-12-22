@@ -1,13 +1,13 @@
 class RemovedController < ApplicationController
-def index
-		@items = Item.unscoped.where.not(deleted_at: nil)
+	def index
+		@removed_items = Item.unscoped.where.not(deleted_at: nil)
 	end
 
 	def destroy
 		@item = Item.unscoped.find(params[:id])
 		@item.restore
 
-		redirect_to removed_index_path, status: :see_other
+		redirect_to root_path, status: :see_other
 	end
 
 	private
