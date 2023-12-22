@@ -7,7 +7,7 @@ def index
 		@item = Item.unscoped.find(params[:id])
 		@item.restore
 
-		redirect_to root_path, status: :see_other
+		redirect_to removed_index_path, status: :see_other
 	end
 
 	private
